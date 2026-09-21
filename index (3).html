@@ -1,0 +1,278 @@
+<div id="authPage" class="page active">
+  <div class="auth-container">
+    <div class="auth-logo">
+      <div class="logo-icon">💰</div>
+      <h1>مالی‌یار</h1>
+      <p>مدیریت هوشمند مالی شخصی</p>
+    </div>
+
+    <div class="demo-credentials">
+      <strong>🔐 اطلاعات ورود آزمایشی:</strong>
+      <div>ایمیل: <code>admin@malyar.ir</code></div>
+      <div>رمز: <code>123456</code></div>
+    </div>
+
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" data-tab="login">ورود</button>
+      <button type="button" class="auth-tab" data-tab="signup">ثبت‌نام</button>
+    </div>
+
+    <form id="loginForm" class="auth-form active">
+      <div class="input-group">
+        <label>ایمیل</label>
+        <input type="email" id="loginEmail" placeholder="example@mail.com" required>
+      </div>
+      <div class="input-group">
+        <label>رمز عبور</label>
+        <input type="password" id="loginPass" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="btn-primary">ورود به حساب</button>
+      <p class="auth-hint">حساب ندارید؟ <a href="#" data-switch="signup">ثبت‌نام کنید</a></p>
+    </form>
+
+    <form id="signupForm" class="auth-form">
+      <div class="input-group">
+        <label>نام کامل</label>
+        <input type="text" id="signupName" placeholder="نام و نام خانوادگی" required>
+      </div>
+      <div class="input-group">
+        <label>ایمیل</label>
+        <input type="email" id="signupEmail" placeholder="example@mail.com" required>
+      </div>
+      <div class="input-group">
+        <label>رمز عبور</label>
+        <input type="password" id="signupPass" placeholder="حداقل ۶ کاراکتر" required>
+      </div>
+      <button type="submit" class="btn-primary">ایجاد حساب</button>
+      <p class="auth-hint">حساب دارید؟ <a href="#" data-switch="login">وارد شوید</a></p>
+    </form>
+  </div>
+</div>
+
+<div id="appPage" class="page">
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo-icon-sm">💰</span>
+      <span>مالی‌یار</span>
+    </div>
+    <div class="user-info">
+      <span id="userGreet">سلام، کاربر</span>
+      <button id="logoutBtn" class="icon-btn" title="خروج">⏻</button>
+    </div>
+  </header>
+
+  <nav class="app-nav">
+    <button type="button" class="nav-btn active" data-page="dashboard">
+      <span>📊</span><span>داشبورد</span>
+    </button>
+    <button type="button" class="nav-btn" data-page="transactions">
+      <span>💸</span><span>تراکنش‌ها</span>
+    </button>
+    <button type="button" class="nav-btn" data-page="support">
+      <span>⚙️</span><span>پشتیبانی و تنظیمات</span>
+    </button>
+  </nav>
+
+  <main class="app-main">
+    <section id="dashboard" class="sub-page active">
+      <h2 class="page-title">داشبورد</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card balance">
+          <div class="stat-label">موجودی کل</div>
+          <div class="stat-value" id="statBalance">۰ تومان</div>
+          <div class="stat-icon">💼</div>
+        </div>
+        <div class="stat-card income">
+          <div class="stat-label">درآمد ماه</div>
+          <div class="stat-value" id="statIncome">۰ تومان</div>
+          <div class="stat-icon">📈</div>
+        </div>
+        <div class="stat-card expense">
+          <div class="stat-label">هزینه ماه</div>
+          <div class="stat-value" id="statExpense">۰ تومان</div>
+          <div class="stat-icon">📉</div>
+        </div>
+        <div class="stat-card savings">
+          <div class="stat-label">پس‌انداز</div>
+          <div class="stat-value" id="statSavings">۰ تومان</div>
+          <div class="stat-icon">🏦</div>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <div class="card">
+          <h3>هزینه‌ها بر اساس دسته‌بندی</h3>
+          <div id="categoryChart" class="category-chart">
+            <p class="empty-msg">هنوز هزینه‌ای ثبت نشده است</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>اهداف مالی</h3>
+          <div class="goals-list" id="goalsList">
+            <div class="goal-item">
+              <div class="goal-head">
+                <span>🎯 خرید لپ‌تاپ</span>
+                <span>۶۵٪</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
+            </div>
+            <div class="goal-item">
+              <div class="goal-head">
+                <span>✈️ سفر تابستانی</span>
+                <span>۴۰٪</span>
+              </div>
+              <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>تراکنش‌های اخیر</h3>
+        <div id="recentList" class="tx-list">
+          <p class="empty-msg">هنوز تراکنشی ثبت نشده است</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="transactions" class="sub-page">
+      <h2 class="page-title">تراکنش‌ها</h2>
+
+      <div class="card">
+        <h3>➕ ثبت تراکنش جدید</h3>
+        <form id="txForm" class="tx-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label>نوع</label>
+              <select id="txType">
+                <option value="income">درآمد</option>
+                <option value="expense" selected>هزینه</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>مبلغ (تومان)</label>
+              <input type="number" id="txAmount" placeholder="۰" min="1" required>
+            </div>
+            <div class="input-group">
+              <label>دسته‌بندی</label>
+              <select id="txCategory">
+                <option>🍔 خوراک</option>
+                <option>🚗 حمل‌ونقل</option>
+                <option>🏠 خانه</option>
+                <option>🛍️ خرید</option>
+                <option>💊 سلامت</option>
+                <option>🎮 سرگرمی</option>
+                <option>📚 آموزش</option>
+                <option>💼 حقوق</option>
+                <option>🎁 هدیه</option>
+                <option>📦 سایر</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>تاریخ</label>
+              <input type="date" id="txDate" required>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>توضیحات (اختیاری)</label>
+            <input type="text" id="txNote" placeholder="مثلاً: ناهار با همکاران">
+          </div>
+          <button type="submit" class="btn-primary">ثبت تراکنش</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="tx-header">
+          <h3>📜 تاریخچه تراکنش‌ها</h3>
+          <div class="tx-filters">
+            <input type="text" id="txSearch" placeholder="🔍 جستجو...">
+            <select id="txFilter">
+              <option value="all">همه</option>
+              <option value="income">درآمد</option>
+              <option value="expense">هزینه</option>
+            </select>
+          </div>
+        </div>
+        <div id="txListFull" class="tx-list">
+          <p class="empty-msg">هیچ تراکنشی یافت نشد</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="sub-page">
+      <h2 class="page-title">پشتیبانی و تنظیمات</h2>
+
+      <div class="dashboard-row">
+        <div class="card">
+          <h3>⚙️ تنظیمات حساب</h3>
+          <div class="input-group">
+            <label>نام نمایشی</label>
+            <input type="text" id="settingName" placeholder="نام شما">
+          </div>
+          <div class="input-group">
+            <label>واحد پول</label>
+            <select id="settingCurrency">
+              <option value="تومان">تومان</option>
+              <option value="ریال">ریال</option>
+              <option value="USD">دلار</option>
+              <option value="EUR">یورو</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>حالت نمایش</label>
+            <select id="settingTheme">
+              <option value="light">روشن</option>
+              <option value="dark">تاریک</option>
+            </select>
+          </div>
+          <button id="saveSettings" class="btn-primary">ذخیره تغییرات</button>
+        </div>
+
+        <div class="card">
+          <h3>❓ سوالات متداول</h3>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q">چگونه تراکنش ثبت کنم؟</button>
+              <div class="faq-a">به صفحه «تراکنش‌ها» بروید و فرم بالای صفحه را پر کنید.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q">داده‌های من کجا ذخیره می‌شود؟</button>
+              <div class="faq-a">داده‌ها به صورت موقت در حافظه مرورگر شما نگهداری می‌شوند.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q">آیا استفاده رایگان است؟</button>
+              <div class="faq-a">بله، مالی‌یار کاملاً رایگان است.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q">چگونه رمز عبورم را تغییر دهم؟</button>
+              <div class="faq-a">از بخش تنظیمات حساب می‌توانید اطلاعات خود را به‌روزرسانی کنید.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📞 تماس با پشتیبانی</h3>
+        <form id="supportForm" class="support-form">
+          <div class="input-group">
+            <label>موضوع</label>
+            <input type="text" id="supSubject" placeholder="موضوع پیام" required>
+          </div>
+          <div class="input-group">
+            <label>پیام</label>
+            <textarea id="supMessage" rows="4" placeholder="مشکل یا سوال خود را بنویسید..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">ارسال پیام</button>
+        </form>
+        <div class="support-contacts">
+          <span>📧 support@malyar.ir</span>
+          <span>📱 ۰۲۱-۱۲۳۴۵۶۷۸</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="toast" class="toast"></div>
