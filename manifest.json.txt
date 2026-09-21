@@ -1,0 +1,22 @@
+{
+  "name": "مالی‌یار - مدیریت هوشمند مالی",
+  "short_name": "مالی‌یار",
+  "description": "اپلیکیشن مدیریت مالی شخصی با پشتیبانی آفلاین",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e3a8a",
+  "lang": "fa",
+  "dir": "rtl",
+  "categories": ["finance", "productivity"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
